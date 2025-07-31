@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: Crystal API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/
+    description: Lokaler Server
+
+paths:
+  /crystal:
+    post:
+      tags:
+        - Crystal
+      operationId: calculateCrystal
+      summary: Berechnet Eigenschaften eines Kristallfeldes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrapConfigDTO'
+      responses:
+        '200':
+          description: Erfolg
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CrystalDTO'
+
+components:
+  schemas:
+    TrapConfigDTO:
+      type: object
+      required:
+        - omegaX
+        - omegaY
+        - omegaZ
+        - ionNumber
+      properties:
+        omegaX:
+          type: number
+          format: double
+          example: 3.14
+        omegaY:
+          type: number
+          format: double
+          example: 2.71
+        omegaZ:
+          type: number
+          format: double
+          example: 1.41
+        ionNumber:
+          type: integer
+          format: int32
+          example: 1000
+    CrystalDTO:
+      type: array
+      items:
+        type: array
+        items:
+          type: number
+          format: double
+          example: 1.0

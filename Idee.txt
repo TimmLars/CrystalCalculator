@@ -1,0 +1,15 @@
+Idee:
+Simple Api die Ionenkristall für Fallenfrequenzen zurückgibt
+
+Features:
+Api parameter Fallenfrequenzen und ionenanzahl
+gibt zurück liste an positionen
+
+Später:
+Schreibt Ergebnis in Datenbank
+Bei neuer Anfrage sucht er ähnlichste Konfig und nimmt die als Startposition
+RK4 mit Apache Commons Math
+Parameter ob winkelfrequenzen oder frequenz
+Parameter für einheiten
+eigenfrequenzen berechnen
+
