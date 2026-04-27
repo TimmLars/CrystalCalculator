@@ -7,6 +7,20 @@ servers:
     description: Lokaler Server
 
 paths:
+  /health:
+    get:
+      tags:
+        - Health
+      operationId: healthCheck
+      summary: Überprüft die Erreichbarkeit des Servers
+      responses:
+        '200':
+          description: Server ist erreichbar
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "OK"
   /crystal:
     post:
       tags:
