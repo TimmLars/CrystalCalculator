@@ -52,9 +52,9 @@ public class DGL implements FirstOrderDifferentialEquations{
             yDot[i+numberIons] = y[i+4*numberIons];
             yDot[i+2*numberIons] = y[i+5*numberIons];
             f = calculateForce(y, i);
-            yDot[i+3*numberIons] = -omega[0]*omega[0]*y[i] + f[0]/mass[i];
-            yDot[i+4*numberIons] = -omega[1]*omega[1]*y[i+numberIons] + f[1]/mass[i];
-            yDot[i+5*numberIons] = -omega[2]*omega[2]*y[i+2*numberIons] + f[2]/mass[i];
+            yDot[i+3*numberIons] = -omega[0]*omega[0]*y[i] + f[0]/mass[i] - damping*y[i+3*numberIons];
+            yDot[i+4*numberIons] = -omega[1]*omega[1]*y[i+numberIons] + f[1]/mass[i] - damping*y[i+4*numberIons];
+            yDot[i+5*numberIons] = -omega[2]*omega[2]*y[i+2*numberIons] + f[2]/mass[i] - damping*y[i+5*numberIons];
         }
     }
 
