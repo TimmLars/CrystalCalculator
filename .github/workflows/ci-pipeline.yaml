@@ -9,6 +9,8 @@ env:
 jobs:
     build:
         runs-on: ubuntu-latest
+        permissions:
+          packages: write
         steps:
             - name: Checkout the repo
               uses: actions/checkout@v6
